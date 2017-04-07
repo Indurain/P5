@@ -106,6 +106,32 @@
             </div>
         </div>
     </div>
+
+    <!-- Affiche formulaire pour écrire un commentaire ########################################################################## -->
+    <article>
+        <form method="post" <?php echo "action=\"ecrire_commentaire.php?id=$id\">"; ?>
+        <div class="container">
+            <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <h4>Votre nom</h4>
+                        <input type="text" class="form-control" name="auteur_comm" required data-validation-required-message="Please enter your name.">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <h4>Ecrivez votre commentaire :</h4>
+                    <div class="form-group">
+                        <textarea id="comm" name="comm"  class="form-control" rows="3" required data-validation-required-message="Please enter your name."></textarea>
+                    </div>
+                    <button type="submit" id="envoyer" name="envoyer" class="btn btn-success btn-outline"> Envoyer</button>
+                   
+                    
+                </div>
+            </div>
+        </div>
+        </form>
+    </article>
     
     <hr>
 

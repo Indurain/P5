@@ -113,4 +113,15 @@ class Manager {
       return $req;
    }
 
+   public function ajouter_commentaire(Commentaire $commentaire)
+   { 
+      $q = $this->_bdd->prepare('INSERT INTO commentaire (auteur_comm, date_der_modif_comm, contenu_comm, article_id) VALUES(:auteur_comm, now(), :contenu_comm, :article_id)');
+
+      $q->bindValue(':auteur_comm', $commentaire->auteurComm(), PDO::PARAM_STR);
+      $q->bindValue(':contenu_comm', $commentaire->contenuComm(), PDO::PARAM_STR);
+      $q->bindValue(':article_id', $commentaire->articleId(), PDO::PARAM_INT);
+      
+      $q->execute();
+   }
+
 }
