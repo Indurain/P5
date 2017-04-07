@@ -64,4 +64,17 @@ class Manager {
 
    }
 
+   public function lire_article($bdd)
+   {
+      $id = $_GET['id'];
+      
+      
+      $req = $this->_bdd->prepare('SELECT id_article As idArt, titre, auteur_art AS auteurArt, chapo, contenu_art AS contenuArt, date_der_modif_art AS dateDerModifArt, a_comm AS aComm FROM article WHERE id_article = :id');
+      $req->bindValue(':id', $id, PDO::PARAM_INT);
+
+      $req->execute();
+      
+      return $req;
+   } 
+
 }
