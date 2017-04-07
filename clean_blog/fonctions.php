@@ -27,3 +27,11 @@ function compter_articles($bdd) {
    $data2 = $data['nbArt'];
    return $data2; 
 }
+
+function compter_commentaires($bdd) {
+   $sql = "SELECT COUNT(id_comm) AS nbComm FROM commentaire";
+   $req = $bdd->query($sql);
+   $data = $req->fetch();
+   $data2 = $data['nbComm'];
+   return $data2;
+}

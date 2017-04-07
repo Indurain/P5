@@ -124,4 +124,16 @@ class Manager {
       $q->execute();
    }
 
+   public function supprimer_article($id_article)
+   {  
+      $q = $this->_bdd->prepare('DELETE FROM article WHERE id_article = ?');
+      $q->execute(array($id_article));
+   }
+
+   public function supprimer_comm($id)
+   { 
+      $q = $this->_bdd->prepare('DELETE FROM commentaire WHERE id_comm = ?');
+      $q->execute(array($id));
+   }
+
 }
