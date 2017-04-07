@@ -136,4 +136,23 @@ class Manager {
       $q->execute(array($id));
    }
 
+   public function lire_commentaire ($bdd) {
+      $req = $this->_bdd->prepare('SELECT id_comm As idComm, auteur_comm AS auteurComm, contenu_comm AS contenuComm, date_der_modif_comm AS dateDerModifComm FROM commentaire WHERE id_comm = ?');
+      $req->execute(array($_GET['idComm']));
+      
+      return $req;
+   }
+
+   public function modifier_commentaire(Commentaire $comm) {
+      $q = $this->_bdd->prepare('UPDATE commentaire 
+      SET auteur_comm = :auteur, contenu_comm = :contenu, date_der_modif_comm = now()
+      WHERE id_comm = :id');
+
+      $q->bindValue(':auteur', $comm->auteurComm(), PDO::PARAM_STR);
+      $q->bindValue(':contenu', $comm->contenuComm(), PDO::PARAM_STR);
+      $q->bindValue(':id', $comm->idComm(), PDO::PARAM_INT);
+      $q->execute();
+
+   }
+
 }
