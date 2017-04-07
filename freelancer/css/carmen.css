@@ -1,0 +1,41 @@
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+  color: #A60000;
+  outline: none;
+}
+
+hr.star-light:after {
+  background-color: #2C3E50;
+  color: white;
+}
+hr.star-primary {
+  border-color: #2C3E50;
+}
+hr.star-primary:after {
+  background-color: white;
+  color: #2C3E50;
+}
+
+header {
+  background: #2C3E50;
+}
+
+section.success {
+  background: #2C3E50;
+  color: white;
+}
+
+.navbar-custom {
+  background:  #18BC9C;
+}
+
+.navbar-custom .navbar-nav li a:hover {
+  color: #A60000;
+}
+
+.glyphicon-arrow-up {
+  color: #A60000;
+}
