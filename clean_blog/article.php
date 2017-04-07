@@ -78,6 +78,37 @@
         </div>
     </article>
 
+    <!-- Afichage des commentaires s'il y en a ######################################################################""-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <?php
+                    if ($comm_exists == 1) {
+                        echo "Commentaires :";
+                        $liste_comm = $manager->lister_commentaires();
+                        while ($donnees = $liste_comm->fetch())
+                        { 
+                            $commentaire = new Commentaire ($donnees);
+                ?>
+                            <div class="post-preview">
+                                <p class="post-meta"> Posté par <a href="#"><?php echo htmlspecialchars($commentaire->auteurComm()); ?></a> le <?php echo htmlspecialchars($commentaire->dateDerModifComm()); ?></p>
+                                <p class="post-subtitle">
+                                <?php echo htmlspecialchars($commentaire->contenuComm());?>
+                                </p>
+                            </div>
+                <hr>
+                        <?php 
+                        }
+                    }
+                    else {
+                        echo "Il n'y a pas de commentaires pour cet article.";
+                    }?>
+            </div>
+        </div>
+    </div>
+    
+    <hr>
+
     <hr>
     <?php include("footer.php"); ?>
    

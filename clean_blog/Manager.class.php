@@ -93,4 +93,24 @@ class Manager {
 
    }
 
+   public function changer_comm_exists($comm_exists) 
+   {
+      $q = $this->_bdd->prepare('UPDATE article
+      SET a_comm = :comm_exists
+      WHERE id_article = :id');
+
+      $q->bindValue(':comm_exists', $comm_exists, PDO::PARAM_INT);
+      $q->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
+
+      $q->execute();
+   }
+
+   public function lister_commentaires()
+   {
+      $req = $this->_bdd->prepare('SELECT id_comm AS idComm, auteur_comm AS auteurComm, contenu_comm AS contenuComm, date_der_modif_comm AS dateDerModifComm FROM commentaire WHERE article_id = ?');
+      $req->execute(array($_GET['id']));
+      
+      return $req;
+   }
+
 }
