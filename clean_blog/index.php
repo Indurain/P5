@@ -13,7 +13,7 @@
     
     $requete_10 = $manager->lire_liste_articles($bdd);
 
-    include("../metas.php"); 
+    include("metas.php"); 
     
 ?>
     <title>Carmen Fabo : le Blog</title>
@@ -22,40 +22,10 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="../freelancer/index.html">Carmen Fabo Indurain, le site</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="index.html">Accueil</a>
-                    </li>
-                    
-                    <li>
-                        <a href="ecrire_article.php">Ecrire un article</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+    <?php include("nav.php"); ?>
 
     <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+    <header class="intro-header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -73,56 +43,71 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-                    <a href="post.html">
+                <?php
+        
+                    while ($donnees = $requete_10->fetch()) 
+                    {
+                    
+                        $article = new Article ($donnees);
+                        $id = $article->idArt();
+                        $comm_exists = $article->aComm();
+                        // Lecture de l'id pour le passer en paramètre avec l'adresse url
+                        
+                ?>
+       
+                    <div class="post-preview">
                         <h2 class="post-title">
-                            Bienvenue
+                        <?php 
+                            echo "<a href=\"article.php?id=$id\">";
+                            echo htmlspecialchars($article->titre());
+                            echo " </a>"; 
+                        ?> 
                         </h2>
                         <h3 class="post-subtitle">
-                            Ceci est le premier post du blog
+                        <?php echo htmlspecialchars($donnees['chapo']);  ?>
                         </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Carmen</a> on September 24, 2014</p>
-                </div>
+                        <p class="post-meta"> Posté par <?php echo htmlspecialchars($article->auteurArt()); ?> le <?php echo htmlspecialchars($article->dateDerModifArt()); ?></p>
+                    </div>
                 <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-                        </h2>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Science has not yet mastered prophecy
-                        </h2>
-                        <h3 class="post-subtitle">
-                            We predict too much for the next year and yet far too little for the next ten.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Failure is not an option
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
-                </div>
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
-                    </li>
+
+                <?php 
+                    }
+                    $requete_10->closeCursor(); 
+                ?>
+
+            <!-- Pager -->
+                <ul class="pagination">
+                    <?php 
+                    //  Appel à fonction qui me donne le nombre d'articles qu'il y a dans la base puis conversion en entier
+                    $nArticles = compter_articles($bdd);
+    
+                    // Variable pour stocker le nombre d'articles par page
+                    $perPage = 5;
+
+                    // Variable pour stocker la page actuelle
+                    if (isset($_GET['p'])) {
+                        $cPage = $_GET['p'];
+                    } 
+                    else{ 
+                        $cPage = 1;
+                    }
+                    
+                    // Variable qui contiendra le nombre de pages qu'il y aura en fonction du nombre d'articles et d'articles/page. 
+                    $nbPages = ceil($nArticles/$perPage);
+                        
+                    for ($i=1; $i<=$nbPages; $i++) 
+                    {
+                        if ($i == $cPage) {
+                           echo "<li id=\"pageAct\"> $i </li> ";
+
+                        }
+                        else {
+                             echo "<li> <a href=\"index.php?p=$i\"> $i </a> </li> ";
+                        }
+                        
+                    }
+                            
+                    ?>
                 </ul>
             </div>
         </div>
@@ -130,55 +115,8 @@
 
     <hr>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php include("footer.php"); ?>
 
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-
-    <!-- Theme JavaScript -->
-    <script src="js/clean-blog.min.js"></script>
 
 </body>
 
