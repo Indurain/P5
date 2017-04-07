@@ -50,4 +50,18 @@ class Manager {
       return $reponse;
    }
 
+   public function ajouter_article(Article $article)
+   {
+
+      $q = $this->_bdd->prepare('INSERT INTO article(auteur_art, date_der_modif_art, titre, chapo, contenu_art ) VALUES(:auteur, now(), :titre, :chapo, :contenu)');
+
+      $q->bindValue(':auteur', $article->auteurArt(), PDO::PARAM_STR);
+      $q->bindValue(':titre', $article->titre(),PDO::PARAM_STR);
+      $q->bindValue(':chapo', $article->chapo(), PDO::PARAM_STR);
+      $q->bindValue(':contenu', $article->contenuArt(), PDO::PARAM_STR);
+     
+      $q->execute();
+
+   }
+
 }
