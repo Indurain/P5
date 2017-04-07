@@ -77,4 +77,20 @@ class Manager {
       return $req;
    } 
 
+   public function modifier_article(Article $narticle)
+   {
+      
+      $q = $this->_bdd->prepare('UPDATE article 
+      SET titre = :titre, auteur_art = :auteur, chapo = :chapo, contenu_art = :contenu, date_der_modif_art = now()
+      WHERE id_article = :id');
+
+      $q->bindValue(':titre', $narticle->titre(),PDO::PARAM_STR);
+      $q->bindValue(':auteur', $narticle->auteurArt(), PDO::PARAM_STR);
+      $q->bindValue(':chapo', $narticle->chapo(), PDO::PARAM_STR);
+      $q->bindValue(':contenu', $narticle->contenuArt(), PDO::PARAM_STR);
+      $q->bindValue(':id', $narticle->idArt(), PDO::PARAM_INT);
+      $q->execute();
+
+   }
+
 }

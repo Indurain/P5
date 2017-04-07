@@ -54,7 +54,7 @@
                     </div>
 
                     
-                    <?php echo "<a href=\"modifier.php?id=$id\">"; ?>
+                    <?php echo "<a href=\"modifier_article.php?id=$id\">"; ?>
                         <div class="row">
                             <div class="form-group col-xs-12">
                                 <button type="submit" name="modifier" id="modifier" class="btn btn-success btn-lg">Modifier cet article</button>
