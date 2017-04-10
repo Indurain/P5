@@ -50,9 +50,9 @@
                             <div class="timeline-heading">
                                 <h4 class="timeline-title">
                                     <?php 
-                                    echo "<a href=\"article.php?id=$id\">";
+                                    // echo "<a href=\"article.php?id=$id\">";
                                     echo htmlspecialchars($article->titre()); 
-                                    echo " </a>"; 
+                                    // echo " </a>"; 
                                     ?> 
                                 </h4>
                                 <p><small class="text-muted"><i class="fa fa-clock-o"></i> 
@@ -69,12 +69,12 @@
                                 <hr>
                                 <div class="btn-group">
                                     <?php echo "<a href=\"modifier_art.php?id=$id\">"; ?>
-                                    <button type="button" class="btn btn-warning" name="supprimer" value="supprimer_art">Modifier</button>
+                                    <button type="button" class="btn btn-warning" name="modifier"> Lire / Modifier</button>
                                     </a>
                                 </div>
                                 <div class="btn-group">
                                     <?php echo "<a href=\"supprimer_art.php?id=$id\">"; ?>
-                                    <button type="button" class="btn btn-danger" name="supprimer" value="supp_art">Supprimer</button>
+                                    <button type="button" class="btn btn-danger" name="supprimer">Supprimer</button>
                                     </a>
                                 </div>
                             </div>
@@ -112,7 +112,7 @@
                                     <hr>
                                     <div class="btn-group">
                                         <?php echo "<a href=\"modifier_comm.php?idComm=$idComm\">"; ?>
-                                        <button type="button" class="btn btn-warning">Modifier</button>
+                                        <button type="button" class="btn btn-warning">Lire / Modifier</button>
                                         </a>
                                     </div>
                                     <div class="btn-group">
