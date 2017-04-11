@@ -35,3 +35,46 @@ function compter_commentaires($bdd) {
    $data2 = $data['nbComm'];
    return $data2;
 }
+
+function dernier_id($bdd) {
+   $sql = "SELECT id_article FROM article ORDER BY id_article DESC";
+   $stmt = $bdd->query($sql);
+   $result = $stmt->fetch();
+   $id=$result['id_article'];
+   return $id;
+}
+
+
+function control_get_id($id) {
+      $id_int =(int) $id;
+      $id1 = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+      
+      if ($id1 == 0) {
+         header('Location:erreur.php');
+      }
+      else {
+         // on lit le dernier id 
+         $bdd = connexion();
+         $der_id = dernier_id($bdd);
+         $manager = new Manager($bdd);
+         
+
+         if ($id1 < 1 || $id1 > $der_id) {
+            header('Location:erreur.php');
+         }
+
+         $id_bdd = $manager->lire_id($bdd, $id1);
+         $donnees = $id_bdd->fetch();
+
+         if ($donnees == FALSE) {
+            header('Location:erreur.php');
+         }
+         else {
+            return $id1;
+         }
+
+         
+
+        
+      }
+}

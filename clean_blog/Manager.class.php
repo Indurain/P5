@@ -67,14 +67,15 @@ class Manager {
    public function lire_article($bdd)
    {
       $id = $_GET['id'];
-      
-      
+      $id_clean = control_get_id($id);
+    
       $req = $this->_bdd->prepare('SELECT id_article As idArt, titre, auteur_art AS auteurArt, chapo, contenu_art AS contenuArt, date_der_modif_art AS dateDerModifArt, a_comm AS aComm FROM article WHERE id_article = :id');
       $req->bindValue(':id', $id, PDO::PARAM_INT);
 
       $req->execute();
-      
+
       return $req;
+
    } 
 
    public function modifier_article(Article $narticle)
@@ -153,6 +154,13 @@ class Manager {
       $q->bindValue(':id', $comm->idComm(), PDO::PARAM_INT);
       $q->execute();
 
+   }
+
+   public function lire_id($bdd, $id1) {
+      $req = $this->_bdd->prepare('SELECT id_article FROM article WHERE id_article = :id');
+      $req->bindValue(':id', $id1, PDO::PARAM_INT);
+      $req->execute();
+      return $req;
    }
 
 }
