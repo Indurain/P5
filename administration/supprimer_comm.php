@@ -9,6 +9,7 @@ function chargerClasse($classname)
 spl_autoload_register('chargerClasse');
 
 $manager = new Manager($bdd);
+
 $id = $_GET['idComm'];
 
 $manager->supprimer_comm($id);

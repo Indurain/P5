@@ -23,9 +23,9 @@ if (isset($_POST['valider'])) {
             /*Création objet $manager de la classe Manager */
             $nmanager = new Manager($nbdd);
 
-
+            $id_clean = control_get_id($_GET['id']);
             /* Création array pour stocker les données reçus du formulaire, on les transmettra ensuite en paramètres au constructeur de la classe Article */
-            $ndonnees= array('idArt' => $_GET['id'], 'auteurArt' => $_POST['auteur'], 'titre' => $_POST['titre'], 'chapo' => $_POST['chapo'], 'contenuArt' => $_POST['message'] );
+            $ndonnees= array('idArt' => $id_clean, 'auteurArt' => $_POST['auteur'], 'titre' => $_POST['titre'], 'chapo' => $_POST['chapo'], 'contenuArt' => $_POST['message'] );
 
             /*Création objet $article de la classe Article */
             $narticle = new Article($ndonnees);

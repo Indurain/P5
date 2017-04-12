@@ -61,22 +61,37 @@ class Manager {
       $q->bindValue(':contenu', $article->contenuArt(), PDO::PARAM_STR);
      
       $q->execute();
-
    }
+
 
    public function lire_article($bdd)
    {
       $id = $_GET['id'];
-      $id_clean = control_get_id($id);
+      $type = "art";
+      $id_clean = control_get_id($id, $type);
     
       $req = $this->_bdd->prepare('SELECT id_article As idArt, titre, auteur_art AS auteurArt, chapo, contenu_art AS contenuArt, date_der_modif_art AS dateDerModifArt, a_comm AS aComm FROM article WHERE id_article = :id');
-      $req->bindValue(':id', $id, PDO::PARAM_INT);
+      $req->bindValue(':id', $id_clean, PDO::PARAM_INT);
 
       $req->execute();
 
       return $req;
-
    } 
+
+   public function lire_commentaire($bdd)
+   {
+      $id = $_GET['idComm'];
+      $type = "comm";
+      $id_clean = control_get_id_comm($id, $type);
+    
+      $req = $this->_bdd->prepare('SELECT id_comm As idComm, auteur_comm AS auteurComm, contenu_comm AS contenuComm, date_der_modif_comm AS dateDerModifComm FROM commentaire WHERE id_comm = :id');
+      
+      $req->bindValue(':id', $id_clean, PDO::PARAM_INT);
+
+      $req->execute();
+
+      return $req;
+   }
 
    public function modifier_article(Article $narticle)
    {
@@ -137,12 +152,9 @@ class Manager {
       $q->execute(array($id));
    }
 
-   public function lire_commentaire ($bdd) {
-      $req = $this->_bdd->prepare('SELECT id_comm As idComm, auteur_comm AS auteurComm, contenu_comm AS contenuComm, date_der_modif_comm AS dateDerModifComm FROM commentaire WHERE id_comm = ?');
-      $req->execute(array($_GET['idComm']));
-      
-      return $req;
-   }
+   
+
+    
 
    public function modifier_commentaire(Commentaire $comm) {
       $q = $this->_bdd->prepare('UPDATE commentaire 
@@ -158,6 +170,13 @@ class Manager {
 
    public function lire_id($bdd, $id1) {
       $req = $this->_bdd->prepare('SELECT id_article FROM article WHERE id_article = :id');
+      $req->bindValue(':id', $id1, PDO::PARAM_INT);
+      $req->execute();
+      return $req;
+   }
+
+   public function lire_id_comm($bdd, $id1) {
+      $req = $this->_bdd->prepare('SELECT id_comm FROM commentaire WHERE id_comm = :id');
       $req->bindValue(':id', $id1, PDO::PARAM_INT);
       $req->execute();
       return $req;

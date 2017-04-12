@@ -9,8 +9,9 @@ function chargerClasse($classname)
 spl_autoload_register('chargerClasse');
 
 $manager = new Manager($bdd);
-$id = $_GET['id'];
-$manager->supprimer_article($id);
+$id_clean = control_get_id($_GET['id']);
+
+$manager->supprimer_article($id_clean);
 
 include('metas.php');
 include('header.php');

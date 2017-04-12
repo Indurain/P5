@@ -26,9 +26,10 @@ if (isset($_POST['valider'])) {
             /*Création objet $manager de la classe Manager */
             $nmanager = new Manager($nbdd);
 
-
+            $id = $_GET['idComm'];
+          
             /* Création array pour stocker les données reçus du formulaire, on les transmettra ensuite en paramètres au constructeur de la classe Article */
-            $ndonnees= array('idComm' => $_GET['idComm'], 'auteurComm' => $_POST['auteur_comm'], 'contenuComm' => $_POST['message']);
+            $ndonnees= array('idComm' => $id, 'auteurComm' => $_POST['auteur_comm'], 'contenuComm' => $_POST['message']);
 
             /*Création objet $article de la classe Article */
             $comm = new Commentaire($ndonnees);
@@ -51,14 +52,14 @@ include_once 'header.php';
             <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         <h4>Auteur</h4>
-                        <input type="text" class="form-control" name="auteur_comm" value="<?php echo htmlspecialchars($commentaire->auteurComm()) ?>">
+                        <input type="text" class="form-control" id="auteur_comm" name="auteur_comm" value="<?php echo htmlspecialchars($commentaire->auteurComm()) ?>">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <h4>Commentaire :</h4>
-                    <textarea rows="5" class="form-control" name="message" name="message" required data-validation-required-message="Please enter a message."> <?php echo htmlspecialchars($commentaire->contenuComm()); ?></textarea>
+                    <textarea rows="5" class="form-control" id="message" name="message" required data-validation-required-message="Please enter a message."> <?php echo htmlspecialchars($commentaire->contenuComm()); ?></textarea>
                         <p class="help-block text-danger"></p>
                     <button type="submit" id="envoyer" name="valider" class="btn btn-success btn-outline"> Valider </button>
                 </div>

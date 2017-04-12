@@ -44,37 +44,75 @@ function dernier_id($bdd) {
    return $id;
 }
 
+function dernier_id_comm($bdd) {
+   $sql = "SELECT id_comm FROM commentaire ORDER BY id_comm DESC";
+   $stmt = $bdd->query($sql);
+   $result = $stmt->fetch();
+   $id=$result['id_comm'];
+   return $id;
+}
 
-function control_get_id($id) {
-      $id_int =(int) $id;
+function control_get_id($id, $type) {
+  
       $id1 = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
       
       if ($id1 == 0) {
-         header('Location:erreur.php');
+         header('Location: ../erreur.php');
       }
       else {
          // on lit le dernier id 
          $bdd = connexion();
+
          $der_id = dernier_id($bdd);
+            
          $manager = new Manager($bdd);
          
-
          if ($id1 < 1 || $id1 > $der_id) {
-            header('Location:erreur.php');
+               header('Location: ../erreur.php');
          }
 
          $id_bdd = $manager->lire_id($bdd, $id1);
          $donnees = $id_bdd->fetch();
 
          if ($donnees == FALSE) {
-            header('Location:erreur.php');
+            header('Location: ../erreur.php');
          }
          else {
             return $id1;
          }
-
-         
-
-        
       }
 }
+
+function control_get_id_comm($idComm) {
+     
+      $id1 = filter_var($idComm, FILTER_SANITIZE_NUMBER_INT);
+      
+      if ($id1 == 0) {
+         header('Location:../erreur.php');
+      }
+      else {
+         // on lit le dernier id 
+         $bdd = connexion();
+         $der_id = dernier_id_comm($bdd);
+
+         $manager = new Manager($bdd);
+         
+
+         if ($id1 < 1 || $id1 > $der_id) {
+            echo "erreur 2";
+            //header('Location:../erreur.php');
+         }
+
+         $id_bdd = $manager->lire_id_comm($bdd, $id1);
+         $donnees = $id_bdd->fetch();
+
+         if ($donnees == FALSE) {
+            header('Location:../erreur.php');
+         }
+         else {
+            return $id1;
+         }
+      }
+}
+
+

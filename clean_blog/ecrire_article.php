@@ -31,7 +31,13 @@
                         <h1>Ecrivez ici votre article</h1>
                         <h2 class="subheading">Allez-y !</h2>
                         
-                        
+                        <?php if (isset($_POST['valider'])) {
+                            echo "<h3>";
+                            echo "Votre article a bien été inseré, merci pour votre participation !";
+                            echo "</h3>"; 
+                        }
+                        ?>
+
                     </div>
                 </div>
             </div>
@@ -105,8 +111,7 @@
             /* Appel de la méthode ajouter article de la classe Manager */
             $manager->ajouter_article($article);
 
-            echo "Votre article a bien été ajouté, merci pour votre participation !";
-       
+            
         }
     ?>
     <hr>
