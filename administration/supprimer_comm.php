@@ -9,10 +9,14 @@ function chargerClasse($classname)
 spl_autoload_register('chargerClasse');
 
 $manager = new Manager($bdd);
-
 $id = $_GET['idComm'];
+$comm_manager = $manager->lire_commentaire($id);
+$donnees = $comm_manager->fetch();
 
-$manager->supprimer_comm($id);
+// Créer objet de la classe Article avec les données lus par le manager
+$commentaire = new Commentaire($donnees);
+
+$manager->supprimer_comm($commentaire);
 
 include('metas.php');
 include('header.php');

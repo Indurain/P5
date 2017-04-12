@@ -9,9 +9,14 @@ function chargerClasse($classname)
 spl_autoload_register('chargerClasse');
 
 $manager = new Manager($bdd);
-$id_clean = control_get_id($_GET['id']);
+$id = $_GET['id'];
+$article_manager = $manager->lire_article($id);
+$donnees = $article_manager->fetch();
 
-$manager->supprimer_article($id_clean);
+// Créer objet de la classe Article avec les données lus par le manager
+$article = new Article($donnees);
+
+$manager->supprimer_article($article);
 
 include('metas.php');
 include('header.php');

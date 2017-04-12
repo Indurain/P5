@@ -52,7 +52,7 @@ function dernier_id_comm($bdd) {
    return $id;
 }
 
-function control_get_id($id, $type) {
+function control_get_id($id) {
   
       $id1 = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
       
@@ -99,8 +99,7 @@ function control_get_id_comm($idComm) {
          
 
          if ($id1 < 1 || $id1 > $der_id) {
-            echo "erreur 2";
-            //header('Location:../erreur.php');
+            header('Location:../erreur.php');
          }
 
          $id_bdd = $manager->lire_id_comm($bdd, $id1);
