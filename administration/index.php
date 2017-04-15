@@ -14,6 +14,8 @@
     
     $requete_10 = $manager->lire_liste_articles($bdd);
 
+   
+    
     include("metas.php");
 ?>
 

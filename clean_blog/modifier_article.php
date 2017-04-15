@@ -28,7 +28,7 @@
             /* Appel de la méthode ajouter article de la classe Manager */
             $nmanager->modifier_article($narticle);
 
-           
+            
     }
     
    // Création objet $manager de la classe Manager pour lire l'article demandé
@@ -132,7 +132,10 @@
     <hr>
 
     
-    <?php include("footer.php"); ?>
+    <?php include("footer.php"); 
+        // Fermeture de conexion
+        unset($bdd);
+    ?>
 
 </body>
 

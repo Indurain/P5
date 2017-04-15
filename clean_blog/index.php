@@ -12,6 +12,9 @@
     $manager = new Manager($bdd);
     $requete_10 = $manager->lire_liste_articles($bdd);
 
+    // Fermeture de la conexion bdd
+    unset($bdd);
+    
     include("metas.php"); 
     
 ?>

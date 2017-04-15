@@ -41,6 +41,9 @@
 
     // Appel de méthode pour changer bdd : champ comm_exists de l'article qu'a été commenté
     $manager->changer_comm_exists($comm_exists);
+
+    // Fermeture de conexion
+    unset($bdd);
     }
     header('Location:article.php?id='.$id);
 ?> 

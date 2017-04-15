@@ -1,6 +1,9 @@
 <?php 
 $nbArt = compter_articles($bdd);
 $nbComm = compter_commentaires($bdd);
+
+ // Fermeture de la conexion bdd
+    unset($bdd);
 ?>
 
 <div class="row">

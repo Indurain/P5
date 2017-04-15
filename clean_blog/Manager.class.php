@@ -19,8 +19,6 @@ class Manager {
 
    public function lire_liste_articles($bdd)
    {
-      
-
       // Fonctionnalité de pagination pour lister 5 articles par page
    
       //  Appel à fonction qui me donne le nombre d'articles qu'il y a dans la base puis conversion en entier
@@ -41,7 +39,7 @@ class Manager {
          $cPage = 1;
       }
 
-      // Création variable pour requête
+      // Création variable pour calculer nombre de pages nécessaires en fonction du nombre d'articles et du nombre d'articles par page
       $calcul = ($cPage-1)*5;
    
       $requete = "SELECT id_article AS idArt, auteur_art AS auteurArt, date_der_modif_art AS dateDerModifArt, titre, chapo, contenu_art AS contenuArt, a_comm AS aComm  FROM article ORDER BY date_der_modif_art DESC LIMIT $calcul, $perPage";
