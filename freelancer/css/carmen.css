@@ -1,9 +1,8 @@
 a,
 a:hover,
-a:focus,
-a:active,
-a.active {
-  color: #A60000;
+a:focus
+{
+  color: #2C3E50;
   outline: none;
 }
 
@@ -38,4 +37,25 @@ section.success {
 
 .glyphicon-arrow-up {
   color: #A60000;
+}
+
+#pageAct {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: olive;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+
+}
+
+.intro-header {
+  background-color: #18BC9C;
+}
+
+#contact {
+  background-color: #BADBD6;
 }
