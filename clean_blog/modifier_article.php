@@ -133,11 +133,7 @@
     
     <hr>
 
-    
-    <?php include 'footer.php'; 
-        // Fermeture de conexion
-        unset($bdd);
-    ?>
+    <?php include 'footer.php'; ?>
 
 </body>
 

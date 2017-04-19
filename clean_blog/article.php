@@ -16,9 +16,6 @@
     // on apelle la méthode lire_article et elle retourne un objet de la classe PDOStatement, qui a une propriété privée qui s'appelle queryString, => un string avec, comme clé le nom de la colonne (avec un AS pour que le nom coincide avec le nom de la propriété du future objet article) et comme valeur la valeur de la colonne.
     $article_manager = $manager->lire_article($bdd);
     
-    // Fermeture de la conexion
-    unset($bdd);
-   
     // On accéde aux données avec la méthode fetch 
     $donnees = $article_manager->fetch();
 

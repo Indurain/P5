@@ -119,11 +119,7 @@
 
     <hr>
 
-    <?php
-    include 'footer.php'; 
-    // Fermeture de la conexion bdd
-    unset($bdd);
-    ?>
+    <?php include 'footer.php'; ?>
 
 
 </body>

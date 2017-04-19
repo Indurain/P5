@@ -112,9 +112,6 @@
         
             /* Appel de la méthode ajouter article de la classe Manager */
             $manager->ajouter_article($article);
-
-            // Fermeture de la conexion
-            unset($bdd);
             
         }
     ?>
