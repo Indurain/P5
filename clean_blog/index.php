@@ -1,6 +1,6 @@
 <?php
 
-    include("fonctions.php");
+    include 'fonctions.php';
     $bdd=connexion();
     
     function chargerClasse($classname)
@@ -11,20 +11,18 @@
     
     $manager = new Manager($bdd);
     $requete_10 = $manager->lire_liste_articles($bdd);
-
-    // Fermeture de la conexion bdd
-    unset($bdd);
     
-    include("metas.php"); 
+    include 'metas.php';
     
 ?>
+    <!-- Head's open tag is in metas.php -->
     <title>Carmen Fabo : le Blog</title>
 </head>
 
 <body>
 
     <!-- Navigation -->
-    <?php include("nav.php"); ?>
+    <?php include 'nav.php'; ?>
 
     <!-- Page Header -->
     <header class="intro-header">
@@ -117,7 +115,11 @@
 
     <hr>
 
-    <?php include("footer.php"); ?>
+    <?php
+    include 'footer.php'; 
+    // Fermeture de la conexion bdd
+    unset($bdd);
+    ?>
 
 
 </body>

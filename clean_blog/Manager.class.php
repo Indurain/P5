@@ -42,10 +42,14 @@ class Manager {
       // Création variable pour calculer nombre de pages nécessaires en fonction du nombre d'articles et du nombre d'articles par page
       $calcul = ($cPage-1)*5;
    
-      $requete = "SELECT id_article AS idArt, auteur_art AS auteurArt, date_der_modif_art AS dateDerModifArt, titre, chapo, contenu_art AS contenuArt, a_comm AS aComm  FROM article ORDER BY date_der_modif_art DESC LIMIT $calcul, $perPage";
-      $reponse = $bdd->query($requete); 
+      $req = $this->_bdd->prepare('SELECT id_article AS idArt, auteur_art AS auteurArt, date_der_modif_art AS dateDerModifArt, titre, chapo, contenu_art AS contenuArt, a_comm AS aComm  FROM article ORDER BY date_der_modif_art DESC LIMIT :param1, :param2');
+      
+      $req->bindValue(':param1', $calcul, PDO::PARAM_INT);
+      $req->bindValue(':param2', $perPage, PDO::PARAM_INT); 
 
-      return $reponse;
+      $req->execute();
+
+      return $req;
    }
 
    public function ajouter_article(Article $article)
