@@ -48,17 +48,17 @@
                 <div class="col-lg-12">
                     <div class="intro-text">
                         <span class="name">
-                            Carmen Fabo Indurain
+                            L'article n'existe pas.
                         </span>
                         <hr class="star-light">
-                        <span class="skills">Web Developer - PHP / Symfony</span>
+                        <span class="skills">Il semblerait qu'une erreur se soit produite.</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
     <section>
-    <p id="message_erreur"> <a href="http://www.openclassrooms.carmen-fabo.com/P5/freelancer/index.php">Page d'erreur : il semblerait qu'une erreur s'est produit. Vous pouvez revenir à la page d'accueil en clicant sur ce message.</a></p>
+    <p id="message_erreur"> <a href="http://www.openclassrooms.carmen-fabo.com/P5/freelancer/index.php"> Vous pouvez revenir à la page d'accueil de Carmen Fabo en cliquant sur ce message.</a></p>
     </section>
 
     
