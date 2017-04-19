@@ -1,5 +1,5 @@
 <?php
-    include("fonctions.php");
+    include 'fonctions.php';
     
     function chargerClasse($classname)
     {
@@ -7,7 +7,7 @@
     }
     spl_autoload_register('chargerClasse');
 
-    include("metas.php");
+    include 'metas.php';
 
 ?>
 
@@ -119,7 +119,7 @@
     <hr>
 
     <!-- Footer -->
-    <?php include("footer.php"); ?>
+    <?php include 'footer.php'; ?>
 
 </body>
 

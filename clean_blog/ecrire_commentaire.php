@@ -5,7 +5,7 @@
     }
     spl_autoload_register('chargerClasse');
 
-    include("fonctions.php");
+    include 'fonctions.php';
     $bdd=connexion();
 
     // On va créer un objet article pour travailler avec. Pour cela il faut d'abord créer un objet Manager

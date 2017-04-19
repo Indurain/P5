@@ -5,7 +5,7 @@
     }
     spl_autoload_register('chargerClasse');
 
-    include("fonctions.php");
+    include 'fonctions.php';
     $bdd=connexion();
     
     // On va créer un objet article pour travailler avec. Pour cela il faut d'abord créer un objet Manager
@@ -25,7 +25,7 @@
     //Puis on crée notre objet de la classe Article avec les données
     $article = new Article($donnees);
 
-    include("metas.php");
+    include 'metas.php';
     
 ?>
 
@@ -35,7 +35,7 @@
 <body>
 
     <!-- Navigation -->
-    <?php include("nav.php"); ?>
+    <?php include 'nav.php'; ?>
 
 <!-- Affichage de l'article ###################################################################################### -->
     
@@ -139,7 +139,7 @@
     <hr>
 
     <hr>
-    <?php include("footer.php"); ?>
+    <?php include 'footer.php'; ?>
    
 
 </body>

@@ -1,5 +1,5 @@
 <?php
-    include("fonctions.php");
+    include 'fonctions.php';
     $bdd=connexion();
 
 
@@ -42,7 +42,7 @@
     // Créer objet de la classe Article avec les données lus par le manager
     $article = new Article($donnees);
     
-    include("metas.php");
+    include 'metas.php';
 
 ?>
 
@@ -53,7 +53,7 @@
 <body>
 
     <!-- Navigation -->
-    <?php include("nav.php"); ?>
+    <?php include 'nav.php'; ?>
 
     <!-- Page Header -->
 
@@ -132,7 +132,7 @@
     <hr>
 
     
-    <?php include("footer.php"); 
+    <?php include 'footer.php'; 
         // Fermeture de conexion
         unset($bdd);
     ?>
