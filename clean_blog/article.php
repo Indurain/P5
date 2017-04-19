@@ -24,12 +24,16 @@
 
     //Puis on crée notre objet de la classe Article avec les données
     $article = new Article($donnees);
-
-    include 'metas.php';
     
 ?>
 
-<title>Clean Blog - Article</title>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <?php include 'metas.php'; ?>
+    <!-- Head's open tag is in metas.php -->
+    <title>Carmen Fabo : le Blog</title>
 </head>
 
 <body>

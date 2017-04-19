@@ -1,6 +1,6 @@
 <?php
 
-    include("../clean_blog/fonctions.php");
+    include '../clean_blog/fonctions.php';
     $bdd=connexion();
     
     function chargerClasse($classname)
@@ -13,13 +13,15 @@
     $manager = new Manager($bdd);
     
     $requete_10 = $manager->lire_liste_articles($bdd);
-
-   
     
-    include("metas.php");
 ?>
 
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+    <?php include 'metas.php'; ?>
+</head>
 
 <body>
     

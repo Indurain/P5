@@ -12,9 +12,13 @@
     $manager = new Manager($bdd);
     $requete_10 = $manager->lire_liste_articles($bdd);
     
-    include 'metas.php';
-    
 ?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <?php include 'metas.php'; ?>
     <!-- Head's open tag is in metas.php -->
     <title>Carmen Fabo : le Blog</title>
 </head>

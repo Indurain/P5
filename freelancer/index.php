@@ -239,8 +239,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
+     <!-- Footer -->
     <footer class="text-center">
         <div class="footer-above">
             <div class="container">
@@ -282,6 +281,8 @@
             </div>
         </div>
     </footer>
+
+   
 
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">

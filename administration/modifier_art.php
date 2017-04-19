@@ -1,5 +1,5 @@
 <?php
-include("../clean_blog/fonctions.php");
+include '../clean_blog/fonctions.php';
 $bdd=connexion();
 
 function chargerClasse($classname)
@@ -34,13 +34,17 @@ if (isset($_POST['valider'])) {
             $nmanager->modifier_article($narticle);
 
             header('Location:index.php');
-    }
-
-include('metas.php');
-include('header.php');
-
-
+}
 ?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <?php include 'metas.php'; ?>
+</head>
+
+<?php  include 'header.php'; ?>
 <!-- Post Content -->
     <article>
         <div class="container">

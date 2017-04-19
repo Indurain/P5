@@ -7,14 +7,16 @@
     }
     spl_autoload_register('chargerClasse');
 
-    include 'metas.php';
-
 ?>
 
+<!DOCTYPE html>
+<html lang="fr">
 
-   <title>Le blog de Carmen - Ecrire un article</title>
+<head>
+    <?php include 'metas.php'; ?>
+    <!-- Head's open tag is in metas.php -->
+    <title>Carmen Fabo : le Blog</title>
 </head>
-
 
 <body>
 

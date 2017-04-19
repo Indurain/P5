@@ -41,14 +41,16 @@
 
     // Créer objet de la classe Article avec les données lus par le manager
     $article = new Article($donnees);
-    
-    include 'metas.php';
 
 ?>
+<!DOCTYPE html>
+<html lang="fr">
 
-    <title>Le blog de Carmen - Modifier article v2 avec model ecrire article</title>
+<head>
+    <?php include 'metas.php'; ?>
+    <!-- Head's open tag is in metas.php -->
+    <title>Carmen Fabo : le Blog</title>
 </head>
-
 
 <body>
 

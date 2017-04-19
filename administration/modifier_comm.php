@@ -1,5 +1,5 @@
 <?php
-include("../clean_blog/fonctions.php");
+include '../clean_blog/fonctions.php';
 $bdd=connexion();
 
 function chargerClasse($classname)
@@ -39,9 +39,15 @@ if (isset($_POST['valider'])) {
 
             header('Location:index.php');
     }
-    
-include_once 'metas.php';
-include_once 'header.php';
+?>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <?php include 'metas.php'; ?>
+</head>
+
+<?php  include_once 'header.php'; ?>
 
 
 ?>

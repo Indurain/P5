@@ -8,7 +8,7 @@ function connexion() {
       $password='';
       
       $bdd = new PDO($dsn, $username, $password);
-      $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+      $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       $bdd->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
    }
 
@@ -19,6 +19,18 @@ function connexion() {
 
    return $bdd;
 }
+
+/* function erreur() {
+   try {
+      $resultat ;
+   }
+
+   catch (PDOException $e) {
+      header('Location:../erreur.php');
+   }
+   return $resultat;
+}
+*/
 
 function compter_articles($bdd) {
    $sql = "SELECT COUNT(id_article) AS nbArt FROM article";

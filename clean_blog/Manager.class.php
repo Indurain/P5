@@ -49,6 +49,11 @@ class Manager {
 
       $req->execute();
 
+      // Essai de conrôle d'erreur
+      if ($req === false) {
+         header('Location:../erreur.php');
+      }
+
       return $req;
    }
 

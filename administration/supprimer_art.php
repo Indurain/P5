@@ -1,5 +1,5 @@
 <?php
-include("../clean_blog/fonctions.php");
+include '../clean_blog/fonctions.php';
 $bdd=connexion();
 
 function chargerClasse($classname)
@@ -17,9 +17,14 @@ $donnees = $article_manager->fetch();
 $article = new Article($donnees);
 
 $manager->supprimer_article($article);
+?>
+<!DOCTYPE html>
+<html lang="fr">
 
-include('metas.php');
-include('header.php');
+<head>
+    <?php include 'metas.php'; ?>
+</head>
+<?php  include 'header.php';
 
 echo "L'article a été supprimé."
 ?>

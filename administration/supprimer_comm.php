@@ -1,5 +1,5 @@
 <?php
-include("../clean_blog/fonctions.php");
+include '../clean_blog/fonctions.php';
 $bdd=connexion();
 
 function chargerClasse($classname)
@@ -17,9 +17,14 @@ $donnees = $comm_manager->fetch();
 $commentaire = new Commentaire($donnees);
 
 $manager->supprimer_comm($commentaire);
+?>
+<!DOCTYPE html>
+<html lang="fr">
 
-include('metas.php');
-include('header.php');
+<head>
+    <?php include 'metas.php'; ?>
+</head>
+<?php  include 'header.php'; 
 
 echo "Le commentaire a été supprimé."
 ?>
