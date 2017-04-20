@@ -20,5 +20,23 @@ $email_body = "Vous avez reçu un message du formulaire du site de Carmen Fabo.\
 $headers = "From: noreply@carmen-fabo.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
 $headers .= "Reply-To: $email_address";   
 mail($to,$email_subject,$email_body,$headers);
-return true;         
+
+include 'metas.php';
+include 'nav.php';
+       
 ?>
+<!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/contact-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>Contact</h1>
+                        <hr class="small">
+                        <span class="subheading">Votre message a bien été envoyé, merci!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
