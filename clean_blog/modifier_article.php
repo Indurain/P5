@@ -1,7 +1,8 @@
 <?php
-    include 'fonctions.php';
-    $bdd=connexion();
 
+    include 'fonctions.php';
+
+    $bdd=connexion();
 
     function chargerClasse($classname)
     {
@@ -28,7 +29,6 @@
             /* Appel de la méthode ajouter article de la classe Manager */
             $nmanager->modifier_article($narticle);
 
-            
     }
     
    // Création objet $manager de la classe Manager pour lire l'article demandé
@@ -43,6 +43,7 @@
     $article = new Article($donnees);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

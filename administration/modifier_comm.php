@@ -1,5 +1,7 @@
 <?php
+
 include '../clean_blog/fonctions.php';
+
 $bdd=connexion();
 
 function chargerClasse($classname)
@@ -40,6 +42,7 @@ if (isset($_POST['valider'])) {
             header('Location:index.php');
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -47,12 +50,15 @@ if (isset($_POST['valider'])) {
     <?php include 'metas.php'; ?>
 </head>
 
+<body>
+
 <?php  include_once 'header.php'; ?>
 
 
-?>
     <h2>Voici le commentaire à modifier : </h2>
-   <article>
+
+    <article>
+
         <form method="post" action="<?php $_SERVER["PHP_SELF"] ?>">
         <div class="container">
             <div class="row">
@@ -72,5 +78,9 @@ if (isset($_POST['valider'])) {
             </div>
         </div>
         </form>
+
     </article>
 
+</body>
+
+</html>

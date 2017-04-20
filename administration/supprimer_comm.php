@@ -21,13 +21,20 @@ $manager->supprimer_comm($commentaire);
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <?php include 'metas.php'; ?>
-</head>
-<?php  include 'header.php'; 
+	<head>
+    	<?php include 'metas.php'; ?>
+	</head>
 
-echo "Le commentaire a été supprimé."
-?>
+	<body>
+
+	<?php  include 'header.php'; 
+
+	echo "Le commentaire a été supprimé."
+	?>
+
+	</body>
+
+</html>
 
 
 

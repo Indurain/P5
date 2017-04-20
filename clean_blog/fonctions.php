@@ -20,45 +20,63 @@ function connexion() {
    return $bdd;
 }
 
-function erreur() {
-   try {
-      $resultat ;
-   }
-
-   catch (PDOException $e) {
-      header('Location:../erreur.php');
-   }
-   return $resultat;
-}
 
 function compter_articles($bdd) {
    $sql = "SELECT COUNT(id_article) AS nbArt FROM article";
-   $req = $bdd->query($sql);
+   $req = $bdd->prepare($sql);
+   $req->execute();
    $data = $req->fetch();
    $data2 = $data['nbArt'];
+
+   // Conrôle d'erreur requête
+      if ($req === false) {
+         header('Location:../erreur.php');
+      }
+
    return $data2; 
 }
 
 function compter_commentaires($bdd) {
    $sql = "SELECT COUNT(id_comm) AS nbComm FROM commentaire";
-   $req = $bdd->query($sql);
+   $req = $bdd->prepare($sql);
+   $req->execute();
    $data = $req->fetch();
    $data2 = $data['nbComm'];
+
+   // Conrôle d'erreur requête
+      if ($req === false) {
+         header('Location:../erreur.php');
+      }
+
    return $data2;
 }
 
 function dernier_id($bdd) {
    $sql = "SELECT id_article FROM article ORDER BY id_article DESC";
-   $stmt = $bdd->query($sql);
-   $result = $stmt->fetch();
+   $req = $bdd->prepare($sql);
+   $req->execute();
+
+   // Conrôle d'erreur requête
+      if ($req === false) {
+         header('Location:../erreur.php');
+      }
+
+   $result = $req->fetch();
    $id=$result['id_article'];
    return $id;
 }
 
 function dernier_id_comm($bdd) {
    $sql = "SELECT id_comm FROM commentaire ORDER BY id_comm DESC";
-   $stmt = $bdd->query($sql);
-   $result = $stmt->fetch();
+   $req = $bdd->prepare($sql);
+   $req->execute();
+
+   // Conrôle d'erreur requête
+      if ($req === false) {
+         header('Location:../erreur.php');
+      }
+      
+   $result = $req->fetch();
    $id=$result['id_comm'];
    return $id;
 }

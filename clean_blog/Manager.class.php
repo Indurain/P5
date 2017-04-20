@@ -49,7 +49,7 @@ class Manager {
 
       $req->execute();
 
-      // Essai de conrôle d'erreur
+      // Conrôle d'erreur requête
       if ($req === false) {
          header('Location:../erreur.php');
       }
@@ -68,6 +68,12 @@ class Manager {
       $q->bindValue(':contenu', $article->contenuArt(), PDO::PARAM_STR);
      
       $q->execute();
+
+      // Conrôle d'erreur requête
+      if ($req === false) {
+         header('Location:../erreur.php');
+      }
+
    }
 
 
@@ -81,6 +87,12 @@ class Manager {
       $req->bindValue(':id', $id_clean, PDO::PARAM_INT);
 
       $req->execute();
+
+      // Conrôle d'erreur requête
+      if ($req === false) {
+         header('Location:../erreur.php');
+      }
+
 
       return $req;
    } 
@@ -96,6 +108,12 @@ class Manager {
       $req->bindValue(':id', $id_clean, PDO::PARAM_INT);
 
       $req->execute();
+
+      // Conrôle d'erreur requête
+      if ($req === false) {
+         header('Location:../erreur.php');
+      }
+
 
       return $req;
    }
@@ -114,6 +132,12 @@ class Manager {
       $q->bindValue(':id', $narticle->idArt(), PDO::PARAM_INT);
       $q->execute();
 
+      // Conrôle d'erreur requête
+      if ($req === false) {
+         header('Location:../erreur.php');
+      }
+
+
    }
 
    public function changer_comm_exists($comm_exists) 
@@ -126,6 +150,12 @@ class Manager {
       $q->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
 
       $q->execute();
+
+      // Conrôle d'erreur requête
+      if ($q === false) {
+         header('Location:../erreur.php');
+      }
+
    }
 
    public function lister_commentaires()
@@ -134,6 +164,12 @@ class Manager {
       $req->execute(array($_GET['id']));
       
       return $req;
+
+      // Conrôle d'erreur requête
+      if ($req === false) {
+         header('Location:../erreur.php');
+      }
+
    }
 
    public function ajouter_commentaire(Commentaire $commentaire)
@@ -145,6 +181,12 @@ class Manager {
       $q->bindValue(':article_id', $commentaire->articleId(), PDO::PARAM_INT);
       
       $q->execute();
+
+      // Conrôle d'erreur requête
+      if ($q === false) {
+         header('Location:../erreur.php');
+      }
+
    }
 
    public function supprimer_article($article)
@@ -153,6 +195,12 @@ class Manager {
       $q = $this->_bdd->prepare('DELETE FROM article WHERE id_article = :id');
       $q->bindValue(':id', $article->idArt(), PDO::PARAM_INT);
       $q->execute();
+
+      // Conrôle d'erreur requête
+      if ($q === false) {
+         header('Location:../erreur.php');
+      }
+
    }
 
    public function supprimer_comm($commentaire)
@@ -160,6 +208,12 @@ class Manager {
       $q = $this->_bdd->prepare('DELETE FROM commentaire WHERE id_comm = :id');
       $q->bindValue(':id', $commentaire->idComm(), PDO::PARAM_INT);
       $q->execute();
+
+      // Conrôle d'erreur requête
+      if ($q === false) {
+         header('Location:../erreur.php');
+      }
+
    }
 
    
@@ -176,6 +230,12 @@ class Manager {
       $q->bindValue(':id', $comm->idComm(), PDO::PARAM_INT);
       $q->execute();
 
+      // Conrôle d'erreur requête
+      if ($q === false) {
+         header('Location:../erreur.php');
+      }
+
+
    }
 
    public function lire_id($bdd, $id1) {
@@ -183,6 +243,12 @@ class Manager {
       $req->bindValue(':id', $id1, PDO::PARAM_INT);
       $req->execute();
       return $req;
+
+      // Conrôle d'erreur requête
+      if ($req === false) {
+         header('Location:../erreur.php');
+      }
+
    }
 
    public function lire_id_comm($bdd, $id1) {
@@ -190,6 +256,12 @@ class Manager {
       $req->bindValue(':id', $id1, PDO::PARAM_INT);
       $req->execute();
       return $req;
+
+      // Conrôle d'erreur requête
+      if ($req === false) {
+         header('Location:../erreur.php');
+      }
+
    }
 
 }

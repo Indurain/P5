@@ -44,6 +44,8 @@ if (isset($_POST['valider'])) {
     <?php include 'metas.php'; ?>
 </head>
 
+<body>
+
 <?php  include 'header.php'; ?>
 <!-- Post Content -->
     <article>
@@ -90,3 +92,6 @@ if (isset($_POST['valider'])) {
             </form>
         </div>
     </article>
+</body>
+
+</html>

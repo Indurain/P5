@@ -21,10 +21,17 @@ $manager->supprimer_article($article);
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <?php include 'metas.php'; ?>
-</head>
-<?php  include 'header.php';
+	<head>
+    	<?php include 'metas.php'; ?>
+	</head>
 
-echo "L'article a été supprimé."
-?>
+	<body>
+
+	<?php  include 'header.php';
+
+	echo "L'article a été supprimé."
+	?>
+
+	</body>
+
+</html>
