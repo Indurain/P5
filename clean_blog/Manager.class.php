@@ -133,7 +133,7 @@ class Manager {
       $q->execute();
 
       // Conrôle d'erreur requête
-      if ($req === false) {
+      if ($q === false) {
          header('Location:../erreur.php');
       }
 

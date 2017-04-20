@@ -15,8 +15,8 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="freelancer/css/freelancer.min.css" rel="stylesheet">
-    <link href="freelancer/css/carmen.css" rel="stylesheet">
+    <link href="clean_blog/css/clean-blog.min.css" rel="stylesheet">
+    <link href="clean_blog/css/carmen.css" rel="stylesheet">
     
     <!-- Carmen css pour page d'erreur-->
     <link href="style.css" rel="stylesheet">
@@ -58,7 +58,7 @@
         </div>
     </header>
     <section>
-    <p id="message_erreur"> <a href="http://www.openclassrooms.carmen-fabo.com/P5/freelancer/index.php"> Vous pouvez revenir à la page d'accueil de Carmen Fabo en cliquant sur ce message.</a></p>
+    <p id="message_erreur"> <a href="http://www.openclassrooms.carmen-fabo.com/P5/clean_blog/index.php"> Vous pouvez revenir à la page d'accueil de Carmen Fabo en cliquant sur ce message.</a></p>
     </section>
 
     

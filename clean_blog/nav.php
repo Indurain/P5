@@ -6,7 +6,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-            <div class="navbar-header page-scroll">
+            
                 <a class="navbar-brand" href="index.php">Carmen Fabo, le blog</a>
             </div>
             

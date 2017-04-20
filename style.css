@@ -2,21 +2,22 @@
 	border: solid 2px gray;
 	width: 50%;
 	margin: auto;
+	margin-top: 50px;
 	padding: 5px;
 	border-radius: 5px;
 
 }
 
-a,
-a:active,
-a.active {
-  color: #2C3E50;
+a
+{
+  color: #353959;
   outline: none;
+  text-decoration: none;
 }
 
 
 a:hover {
-	color: #A60000;
+	color: #794C72;
 	text-decoration: none;
 }
 
