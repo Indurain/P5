@@ -8,7 +8,7 @@
     <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link href="css/clean-blog.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/carmen.css" rel="stylesheet">

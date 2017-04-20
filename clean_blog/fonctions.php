@@ -20,7 +20,7 @@ function connexion() {
    return $bdd;
 }
 
-/* function erreur() {
+function erreur() {
    try {
       $resultat ;
    }
@@ -30,7 +30,6 @@ function connexion() {
    }
    return $resultat;
 }
-*/
 
 function compter_articles($bdd) {
    $sql = "SELECT COUNT(id_article) AS nbArt FROM article";
